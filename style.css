@@ -1,7 +1,21 @@
-/*
- * Archivo de estilos CSS personalizados para el sitio web Satlynk.
+/* Estilos CSS personalizados para el sitio web Satlynk.
  * Contiene reglas para animaciones, efectos visuales y ajustes de diseño específicos.
  */
+
+/* ============================ */
+/* Estilos generales del cuerpo y fuente */
+/* ============================ */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f3f4f6;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Sombra de texto para mejorar la legibilidad del hero. */
+.text-shadow-md {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
 
 /* ============================ */
 /* Animaciones y Efectos de Scroll */
@@ -44,11 +58,30 @@
     }
 }
 
-/* ============================ */
-/* Estilos adicionales y utilidades */
-/* ============================ */
+/* Estilos para el nuevo formulario de contacto */
+.input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #d1d5db; /* gray-300 */
+    border-radius: 0.5rem; /* rounded-lg */
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
 
-/* Sombra de texto personalizada para mejorar la legibilidad del texto sobre imágenes. */
-.text-shadow-md {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+.input:focus {
+    border-color: #3b82f6; /* blue-500 */
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5); /* ring-2 focus:ring-blue-500 */
+}
+
+.btn {
+    background-color: #2563eb; /* blue-600 */
+    color: #fff;
+    font-weight: 600; /* font-semibold */
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #1d4ed8; /* blue-700 */
 }

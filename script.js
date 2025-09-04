@@ -1,3 +1,13 @@
+// Lógica para el menú móvil
+const menuBtn = document.getElementById('menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+
+if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+}
+
 // Lógica para la animación del scroll
 document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('.section-animated');
@@ -21,16 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(section);
     });
 
-    // Lógica para el menú móvil
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (menuBtn && mobileMenu) {
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-    }
-
-    // Lógica de traducción para el contenido del sitio web
+    // Lógica de traducción
     const translations = {
         es: {
             nav_inicio: "Inicio",
@@ -65,9 +66,9 @@ document.addEventListener('DOMContentLoaded', () => {
             form_success: "¡Mensaje enviado correctamente!",
             form_error: "Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.",
             form_sending: "Enviando...",
-            placeholder_name: "Tu nombre completo",
-            placeholder_email: "tu.correo@ejemplo.com",
-            placeholder_message: "Escribe tu mensaje aquí...",
+            placeholder_name: "Tu nombre",
+            placeholder_email: "Tu correo",
+            placeholder_message: "Tu mensaje",
         },
         en: {
             nav_inicio: "Home",
@@ -87,9 +88,9 @@ document.addEventListener('DOMContentLoaded', () => {
             values_text: "Innovation, Integrity, Service Excellence, Commitment, and Adaptability. These principles guide our every action to exceed our clients' expectations.",
             services_title: "Our Services",
             service1_title: "Satellite Connectivity",
-            service1_text: "In an increasingly interconnected world, satellite connectivity becomes the backbone of operations for companies located in remote areas or with limited access to terrestrial network infrastructure. At Satlynk, we offer robust and reliable satellite connectivity solutions that ensure fluid, constant, and high-speed communication. Our cutting-edge technology allows for the transmission of data, voice and video, ensuring your business never stops, regardless of your geographical location. From installation and configuration to monitoring and maintenance, we provide a comprehensive service that adapts to the specific needs of your company, ensuring operational continuity and the maximum efficiency.",
+            service1_text: "In an increasingly interconnected world, satellite connectivity becomes the backbone of operations for companies located in remote areas or with limited access to terrestrial network infrastructure. At Satlynk, we offer robust and reliable satellite connectivity solutions that ensure fluid, constant, and high-speed communication. Our cutting-edge technology allows for the transmission of data, voice and video, ensuring your business never stops, regardless of your geographical location. From installation and configuration to monitoring and maintenance, we provide a comprehensive service that adapts to the specific needs of your company, guaranteeing the continuity operativa and the maximum efficiency.",
             service2_title: "Support and Networks",
-            service2_text: "A stable and secure IT network is vital for the success of any business. Our team of network experts is ready to design, implement and manage network infrastructures that are efficient, scalable, and secure. We offer 24/7 technical support to quickly resolve any issues, minimizing downtime. Whether you need a robust local network (LAN), a wide area network (WAN) to connect multiple sites, or cybersecurity solutions to protect your data, at Satlynk we give you the peace of mind of knowing that your IT infrastructure is in the hands of professionals. We focus on preventive maintenance and continuous optimization to ensure the maximum performance of your network.",
+            service2_text: "A stable and secure IT network is vital for the success of any business. Our team of network experts is ready to design, implement and manage network infrastructures that are efficient, scalable, and secure. We offer 24/7 technical support to quickly resolve any issues, minimizing downtime. Ya sea que necesites una red local (LAN) robusta, una red de área amplia (WAN) para conectar múltiples sedes, o soluciones de ciberseguridad para proteger tus datos, en Satlynk te brindamos la tranquilidad de saber que tu infraestructura de TI está en manos de profesionales. Nos enfocamos en el mantenimiento preventivo y en la optimización continua para garantizar el máximo rendimiento de tu red.",
             service3_title: "IT Consulting",
             service3_text: "The world of technology evolves at a dizzying pace. To remain competitive, it is fundamental to have a well-defined IT strategy. At Satlynk, our technology consulting service helps you take informed decisions about the adoption of new technologies, process optimization, and project planning. We analyze your business needs and objectives to design a tailor-made action plan that allows you to maximize the return on your technology investment. From migrating to the cloud to implementing business software solutions, our team of consultants will guide you every step of the way, guaranteeing that your IT strategy is perfectly aligned with your corporate goals.",
             contact_title: "Contact Us",
@@ -102,9 +103,9 @@ document.addEventListener('DOMContentLoaded', () => {
             form_success: "Message sent successfully!",
             form_error: "There was an error sending the message. Please try again.",
             form_sending: "Sending...",
-            placeholder_name: "Your full name",
-            placeholder_email: "your.email@example.com",
-            placeholder_message: "Write your message here...",
+            placeholder_name: "Your name",
+            placeholder_email: "Your email",
+            placeholder_message: "Your message",
         }
     };
 
@@ -127,41 +128,71 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         });
+
+        // Actualizar los placeholders del formulario
+        document.getElementById('user_name').placeholder = translations[currentLang].placeholder_name;
+        document.getElementById('user_email').placeholder = translations[currentLang].placeholder_email;
+        document.getElementById('message').placeholder = translations[currentLang].placeholder_message;
+        document.getElementById('submit-btn').textContent = translations[currentLang].form_submit;
+        document.getElementById('form-status').textContent = '';
     }
 
-    // Lógica para el formulario de contacto con EmailJS
     const contactForm = document.getElementById('contact-form');
-  const formStatus = document.getElementById('form-status');
-  const submitBtn = document.getElementById('submit-btn');
+    const formStatus = document.getElementById('form-status');
+    const submitBtn = document.getElementById('submit-btn');
 
-  // Inicializar EmailJS
-  emailjs.init("al83KVS5qj8YZ7K5j");
+    // Inicializar EmailJS con tu Public Key
+    //
+    // ¡IMPORTANTE! El error 'Account not found' significa que la clave
+    // a continuación no es válida. Debes reemplazar "al83KVS5qj8YZ7K5j"
+    // con tu Public Key real de EmailJS para que funcione.
+    emailjs.init("AfrrdoW26iYelQZ_G");
 
-  if (contactForm) {
-    contactForm.addEventListener('submit', function (event) {
-      event.preventDefault();
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (event) {
+            event.preventDefault();
 
-      // Deshabilitar botón y mostrar estado
-      submitBtn.disabled = true;
-      formStatus.textContent = "Enviando mensaje...";
-      formStatus.className = "text-gray-600";
+            // Deshabilitar botón y mostrar estado
+            submitBtn.disabled = true;
+            formStatus.textContent = translations[currentLang].form_sending;
+            formStatus.classList.remove('text-green-600', 'text-red-600');
+            formStatus.classList.add('text-gray-600');
 
-      // Enviar formulario
-      emailjs.sendForm('service_46hksgu', 'template_9j3pvun', contactForm)
-        .then(() => {
-          formStatus.textContent = "¡Mensaje enviado con éxito!";
-          formStatus.className = "text-green-600";
-          contactForm.reset();
-        })
-        .catch((error) => {
-          console.error('Error al enviar:', error);
-          formStatus.textContent = "Error al enviar el mensaje. Intenta de nuevo.";
-          formStatus.className = "text-red-600";
-        })
-        .finally(() => {
-          submitBtn.disabled = false;
+            // Recopilar datos del formulario
+            const userName = document.getElementById('user_name')?.value || '';
+            const userEmail = document.getElementById('user_email')?.value || '';
+            const message = document.getElementById('message')?.value || '';
 
+            // Usar las variables {{email}} y {{to_email}} como has solicitado
+            const templateParams = {
+                user_name: userName,
+                email: userEmail,
+                message: message,
+                to_email: "josfer38@gmail.com"
+            };
+
+            console.log("Parámetros a enviar a EmailJS:", templateParams);
+
+            // Enviar datos a EmailJS
+            emailjs.send('service_46hksgu', 'template_nkplxcq', templateParams)
+                .then(() => {
+                    formStatus.textContent = translations[currentLang].form_success;
+                    formStatus.classList.remove('text-gray-600', 'text-red-600');
+                    formStatus.classList.add('text-green-600');
+                    contactForm.reset();
+                })
+                .catch((error) => {
+                    console.error('Error al enviar:', error);
+                    formStatus.textContent = translations[currentLang].form_error;
+                    formStatus.classList.remove('text-gray-600', 'text-green-600');
+                    formStatus.classList.add('text-red-600');
+                })
+                .finally(() => {
+                    submitBtn.disabled = false;
                 });
         });
     }
+
+    // Iniciar el contenido con el idioma por defecto.
+    updateContent();
 });
