@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const submitBtn = document.getElementById('submit-btn');
 
     // Inicializar EmailJS con tu Public Key
+    // ¡IMPORTANTE! Reemplaza "al83KVS5qj8YZ7K5j" con tu Public Key de EmailJS.
     emailjs.init("al83KVS5qj8YZ7K5j");
 
     if (contactForm) {
@@ -38,6 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
             formStatus.textContent = translations[currentLang].form_sending;
             formStatus.classList.remove('text-green-600', 'text-red-600');
 
+            // Enviar el formulario
+            // ¡IMPORTANTE! Reemplaza 'service_46hksgu' y 'template_xxjv8ln' con tus propios Service ID y Template ID de EmailJS.
             emailjs.sendForm('service_46hksgu', 'template_xxjv8ln', this)
                 .then(function() {
                     formStatus.textContent = translations[currentLang].form_success;
@@ -156,7 +159,7 @@ const translations = {
         service2_title: "Support and Networks",
         service2_text: "A stable and secure IT network is vital for the success of any business. Our team of network experts is ready to design, implement and manage network infrastructures that are efficient, scalable and secure. We offer 24/7 technical support to quickly resolve any incident, minimizing downtime. Whether you need a robust local area network (LAN), a wide area network (WAN) to connect multiple locations, or cybersecurity solutions to protect your data, at Satlynk we give you the peace of mind of knowing that your IT infrastructure is in the hands of professionals. We focus on preventive maintenance and continuous optimization to ensure the maximum performance of your network.",
         service3_title: "IT Consulting",
-        service3_text: "The world of technology evolves at a dizzying pace. To remain competitive, it is fundamental to have a well-defined IT strategy. At Satlynk, our technology consulting service helps you make informed decisions about the adoption of new technologies, process optimization and project planning. We analyze your business needs and objectives to design a tailor-made action plan that allows you to maximize the return on your technology investment. From migrating to the cloud to implementing business software solutions, our team of consultants will guide you every step of the way, guaranteeing that your IT strategy is perfectly aligned with your corporate goals.",
+        service3_text: "The world of technology evolves at a dizzying pace. To remain competitive, it is fundamental to have a well-defined IT strategy. At Satlynk, our technology consulting service helps you take informed decisions about the adoption of new technologies, process optimization and project planning. We analyze your business needs and objectives to design a tailor-made action plan that allows you to maximize the return on your technology investment. From migrating to the cloud to implementing business software solutions, our team of consultants will guide you every step of the way, guaranteeing that your IT strategy is perfectly aligned with your corporate goals.",
         contact_title: "Contact Us",
         form_name: "Name",
         form_email: "Email",
