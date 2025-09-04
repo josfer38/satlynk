@@ -131,46 +131,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Lógica para el formulario de contacto con EmailJS
     const contactForm = document.getElementById('contact-form');
-    const formStatus = document.getElementById('form-status');
-    const submitBtn = document.getElementById('submit-btn');
+  const formStatus = document.getElementById('form-status');
+  const submitBtn = document.getElementById('submit-btn');
 
-    // Inicializar EmailJS con tu Public Key
-    emailjs.init("al83KVS5qj8YZ7K5j");
+  // Inicializar EmailJS
+  emailjs.init("al83KVS5qj8YZ7K5j");
 
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(event) {
-            event.preventDefault();
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (event) {
+      event.preventDefault();
 
-            // Deshabilitar el botón y mostrar el estado de envío
-            submitBtn.disabled = true;
-            formStatus.textContent = translations[currentLang].form_sending;
-            formStatus.classList.remove('text-green-600', 'text-red-600');
-            formStatus.classList.add('text-gray-600');
+      // Deshabilitar botón y mostrar estado
+      submitBtn.disabled = true;
+      formStatus.textContent = "Enviando mensaje...";
+      formStatus.className = "text-gray-600";
 
-            // Envía el formulario utilizando el método sendForm
-            // Asegúrate de que el formulario HTML tiene el campo 'to_email'
-            emailjs.sendForm('service_46hksgu', 'template_9j3pvun', this)
-                .then(() => {
-                    // Muestra el mensaje de éxito
-                    formStatus.textContent = translations[currentLang].form_success;
-                    formStatus.classList.remove('text-gray-600', 'text-red-600');
-                    formStatus.classList.add('text-green-600');
+      // Enviar formulario
+      emailjs.sendForm('service_46hksgu', 'template_9j3pvun', contactForm)
+        .then(() => {
+          formStatus.textContent = "¡Mensaje enviado con éxito!";
+          formStatus.className = "text-green-600";
+          contactForm.reset();
+        })
+        .catch((error) => {
+          console.error('Error al enviar:', error);
+          formStatus.textContent = "Error al enviar el mensaje. Intenta de nuevo.";
+          formStatus.className = "text-red-600";
+        })
+        .finally(() => {
+          submitBtn.disabled = false;
 
-                    // Borra los campos del formulario
-                    contactForm.reset();
-                })
-                .catch((error) => {
-                    // Muestra el mensaje de error
-                    console.error('FAILED...', error);
-                    formStatus.textContent = translations[currentLang].form_error;
-                    formStatus.classList.remove('text-gray-600', 'text-green-600');
-                    formStatus.classList.add('text-red-600');
-                })
-                .finally(() => {
-                    // Habilitar el botón de nuevo
-                    submitBtn.disabled = false;
                 });
         });
     }
 });
-
