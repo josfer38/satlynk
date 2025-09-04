@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satlynk | Soluciones Tecnológicas</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            color: #333;
+            line-height: 1.6;
+        }
+        .text-shadow-md {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Header y Navegación -->
+    <header class="bg-white shadow-md fixed w-full top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="#" class="text-2xl font-bold text-gray-800">Satlynk</a>
+            <ul class="flex space-x-6 text-gray-600">
+                <li><a href="#inicio" class="hover:text-blue-600 transition duration-300" data-lang-key="nav_inicio">Inicio</a></li>
+                <li><a href="#servicios" class="hover:text-blue-600 transition duration-300" data-lang-key="nav_servicios">Servicios</a></li>
+                <li><a href="#nosotros" class="hover:text-blue-600 transition duration-300" data-lang-key="nav_nosotros">Nosotros</a></li>
+                <li><a href="#contacto" class="hover:text-blue-600 transition duration-300" data-lang-key="nav_contacto">Contacto</a></li>
+                <li>
+                    <button id="lang-switcher-btn" class="bg-blue-600 text-white font-semibold px-4 py-1 rounded-lg hover:bg-blue-700 transition duration-300" data-lang-key="lang_btn">English</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección de Héroe -->
+    <section id="inicio" class="relative text-white flex items-center justify-center text-center h-screen bg-cover bg-center" style="background-image: url('https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="relative z-10 p-8">
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-4 animate-fade-in-up text-shadow-md" data-lang-key="hero_title">Soluciones Tecnológicas para tu Empresa</h1>
+            <p class="text-xl md:text-2xl mb-8 animate-fade-in-up delay-200 text-shadow-md" data-lang-key="hero_subtitle">En Satlynk, ofrecemos conectividad satelital y soporte de TI para mantener tu negocio en el futuro.</p>
+        </div>
+    </section>
+
+    <!-- Sección Nosotros -->
+    <section id="nosotros" class="py-20 bg-gray-100 section-animated">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4" data-lang-key="mission_vision_title">Misión, Visión y Valores</h2>
+                <p class="text-lg text-gray-600" data-lang-key="mission_vision_subtitle">Nuestro compromiso con la excelencia y la innovación.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-lg p-8 transition-transform transform hover:scale-105 hover:shadow-2xl">
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-4" data-lang-key="mission_title">Misión</h3>
+                    <p class="text-gray-600" data-lang-key="mission_text">Proporcionar soluciones tecnológicas de vanguardia, garantizando conectividad ininterrumpida y un soporte técnico excepcional para impulsar el crecimiento y la eficiencia de nuestros clientes.</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-8 transition-transform transform hover:scale-105 hover:shadow-2xl">
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-4" data-lang-key="vision_title">Visión</h3>
+                    <p class="text-gray-600" data-lang-key="vision_text">Ser líderes en el mercado de soluciones tecnológicas y de conectividad satelital en la región, reconocidos por nuestra innovación, calidad de servicio y el impacto positivo que generamos en los negocios de nuestros socios.</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-8 transition-transform transform hover:scale-105 hover:shadow-2xl">
+                    <h3 class="text-2xl font-semibold text-blue-600 mb-4" data-lang-key="values_title">Valores</h3>
+                    <p class="text-gray-600" data-lang-key="values_text">Innovación, Integridad, Excelencia en el Servicio, Compromiso y Adaptabilidad. Estos principios guían cada una de nuestras acciones para superar las expectativas de nuestros clientes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Servicios -->
+    <section id="servicios" class="py-20 bg-white section-animated">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12" data-lang-key="services_title">Nuestros Servicios</h2>
+            <div class="space-y-12">
+                <!-- Servicio de Conectividad Satelital -->
+                <div class="flex flex-col md:flex-row items-center md:space-x-8 p-6 bg-gray-50 rounded-xl shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl">
+                    <div class="w-full md:w-1/2">
+                        <img src="https://images.pexels.com/photos/356065/pexels-photo-356065.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Conectividad Satelital" class="rounded-lg shadow-md w-full h-auto object-cover">
+                    </div>
+                    <div class="w-full md:w-1/2 mt-6 md:mt-0">
+                        <h3 class="text-3xl font-semibold text-blue-600 mb-4" data-lang-key="service1_title">Conectividad Satelital</h3>
+                        <p class="text-gray-600 mb-4" data-lang-key="service1_text">
+                            En un mundo cada vez más interconectado, la conectividad satelital se convierte en la columna vertebral de las operaciones para empresas ubicadas en zonas remotas o con acceso limitado a infraestructura de red terrestre. En Satlynk, ofrecemos soluciones de conectividad satelital robustas y confiables que garantizan una comunicación fluida, constante y de alta velocidad. Nuestra tecnología de punta permite la transmisión de datos, voz y video, asegurando que tu negocio nunca se detenga, sin importar tu ubicación geográfica. Desde la instalación y configuración hasta el monitoreo y mantenimiento, te brindamos un servicio integral que se adapta a las necesidades específicas de tu empresa, garantizando la continuidad operativa y la máxima eficiencia.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Servicio de Soporte y Redes -->
+                <div class="flex flex-col md:flex-row items-center md:space-x-8 p-6 bg-gray-50 rounded-xl shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl">
+                    <div class="w-full md:w-1/2">
+                        <img src="https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Soporte y Redes" class="rounded-lg shadow-md w-full h-auto object-cover">
+                    </div>
+                    <div class="w-full md:w-1/2 mt-6 md:mt-0">
+                        <h3 class="text-3xl font-semibold text-blue-600 mb-4" data-lang-key="service2_title">Soporte y Redes</h3>
+                        <p class="text-gray-600 mb-4" data-lang-key="service2_text">
+                            Una red de TI estable y segura es vital para el éxito de cualquier negocio. Nuestro equipo de expertos en redes está listo para diseñar, implementar y gestionar infraestructuras de red que sean eficientes, escalables y seguras. Ofrecemos soporte técnico 24/7 para resolver cualquier incidencia con rapidez, minimizando el tiempo de inactividad. Ya sea que necesites una red local (LAN) robusta, una red de área amplia (WAN) para conectar múltiples sedes, o soluciones de ciberseguridad para proteger tus datos, en Satlynk te brindamos la tranquilidad de saber que tu infraestructura de TI está en manos de profesionales. Nos enfocamos en el mantenimiento preventivo y en la optimización continua para garantizar el máximo rendimiento de tu red.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Servicio de Consultoría TI -->
+                <div class="flex flex-col md:flex-row items-center md:space-x-8 p-6 bg-gray-50 rounded-xl shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl">
+                    <div class="w-full md:w-1/2">
+                        <img src="https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Consultoría TI" class="rounded-lg shadow-md w-full h-auto object-cover">
+                    </div>
+                    <div class="w-full md:w-1/2 mt-6 md:mt-0">
+                        <h3 class="text-3xl font-semibold text-blue-600 mb-4" data-lang-key="service3_title">Consultoría TI</h3>
+                        <p class="text-gray-600 mb-4" data-lang-key="service3_text">
+                            El mundo de la tecnología evoluciona a un ritmo vertiginoso. Para mantenerte competitivo, es fundamental contar con una estrategia de TI bien definida. En Satlynk, nuestro servicio de consultoría tecnológica te ayuda a tomar decisiones informadas sobre la adopción de nuevas tecnologías, la optimización de procesos y la planificación de proyectos. Analizamos tus necesidades y objetivos de negocio para diseñar un plan de acción a medida que te permita maximizar el retorno de tu inversión en tecnología. Desde la migración a la nube hasta la implementación de soluciones de software empresarial, nuestro equipo de consultores te guiará en cada paso del camino, garantizando que tu estrategia de TI esté perfectamente alineada con tus metas corporativas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contacto" class="py-20 bg-gray-50 section-animated">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12" data-lang-key="contact_title">Contáctanos</h2>
+            <div class="max-w-xl mx-auto bg-white rounded-xl shadow-lg p-8">
+                <form id="contact-form" class="space-y-6">
+                    <div>
+                        <label for="user_name" class="block text-gray-700 font-medium mb-2" data-lang-key="form_name">Nombre</label>
+                        <input type="text" id="user_name" name="user_name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    <div>
+                        <label for="user_email" class="block text-gray-700 font-medium mb-2" data-lang-key="form_email">Correo Electrónico</label>
+                        <input type="email" id="user_email" name="user_email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-gray-700 font-medium mb-2" data-lang-key="form_message">Mensaje</label>
+                        <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <button type="submit" class="bg-blue-600 text-white font-semibold px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300" id="submit-btn" data-lang-key="form_submit">
+                            Enviar Mensaje
+                        </button>
+                        <p id="form-status" class="text-sm font-medium text-gray-600"></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Botón de WhatsApp flotante -->
+    <a href="https://wa.me/+573044299790" target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <!-- Footer y redes sociales -->
+    <footer class="bg-gray-900 text-white py-12 section-animated">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                <!-- Columna de contacto -->
+                <div class="col-span-1 md:col-span-2 lg:col-span-2">
+                    <h3 class="text-2xl font-bold mb-4" data-lang-key="footer_contact">Contacto</h3>
+                    <p class="mb-2">
+                        <i class="fas fa-map-marker-alt mr-2 text-blue-400"></i>San Andrés Islas, Colombia
+                    </p>
+                    <p class="mb-2">
+                        <i class="fas fa-phone-alt mr-2 text-blue-400"></i> +57 3044299790
+                    </p>
+                    <p>
+                        <i class="fas fa-envelope mr-2 text-blue-400"></i> josfer38@gmail.com
+                    </p>
+                </div>
+
+                <!-- Columna de redes sociales -->
+                <div class="col-span-1 lg:col-span-1">
+                    <h3 class="text-2xl font-bold mb-4" data-lang-key="footer_follow">Síguenos</h3>
+                    <div class="flex space-x-4 text-2xl">
+                        <a href="#" class="hover:text-blue-400 transition-colors duration-300" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="hover:text-blue-400 transition-colors duration-300" aria-label="Twitter">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                        <a href="#" class="hover:text-blue-400 transition-colors duration-300" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            <hr class="border-gray-700 my-8">
+            <div class="text-center text-gray-500">
+                &copy; 2024 Satlynk. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Librería EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>

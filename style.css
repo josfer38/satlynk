@@ -1,0 +1,54 @@
+/*
+ * Archivo de estilos CSS personalizados para el sitio web Satlynk.
+ * Contiene reglas para animaciones, efectos visuales y ajustes de diseño específicos.
+ */
+
+/* ============================ */
+/* Animaciones y Efectos de Scroll */
+/* ============================ */
+
+/* Estilos iniciales para las secciones que se animan al hacer scroll. */
+/* Oculta la sección y la desplaza ligeramente hacia abajo. */
+.section-animated {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Estado final de la animación. */
+/* Cuando la clase 'is-visible' se agrega, la sección se muestra y regresa a su posición original. */
+.section-animated.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animación para el texto principal de la sección de inicio (hero). */
+/* El texto aparece suavemente desde abajo. */
+.animate-fade-in-up {
+    opacity: 0;
+    animation: fade-in-up 1s forwards;
+}
+
+.animate-fade-in-up.delay-200 {
+    animation-delay: 0.2s;
+}
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================ */
+/* Estilos adicionales y utilidades */
+/* ============================ */
+
+/* Sombra de texto personalizada para mejorar la legibilidad del texto sobre imágenes. */
+.text-shadow-md {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
